@@ -1,24 +1,15 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from './Pages/Home/index';
 
 export default function AppRoutes() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/users" element={<Users />} />
+                <Route path="/about" element={<span>About</span>} />
+                <Route path="/users" element={<span>Users</span>} />
             </Routes>
         </BrowserRouter>
     );
-}
-function Home() {
-    return <h2>Home</h2>;
-}
-
-function About() {
-    return <h2>About</h2>;
-}
-
-function Users() {
-    return <h2>Users</h2>;
 }
