@@ -1,6 +1,7 @@
+import { InputHTMLAttributes } from 'react';
 import { Container } from './styles';
 
-interface ButtonProps{
+interface ButtonProps extends InputHTMLAttributes<HTMLButtonElement> {
     text: string;
     width: number;
     height: number;
