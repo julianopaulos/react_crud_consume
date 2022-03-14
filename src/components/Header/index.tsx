@@ -1,20 +1,23 @@
 import { Link } from 'react-router-dom';
 
+import { Nav, NavComponent, LinkStyle } from './styles';
+
 const links = [
-    {main: true, title: 'Home', path: process.env.BASE_URL + '/'},
-    {main: false, title: 'Home', path: process.env.BASE_URL + '/'}
+    {title: 'Home', path: process.env.REACT_APP_BASE_URL + '/'},
+    {title: 'Home', path: process.env.REACT_APP_BASE_URL + '/'},
+    {title: 'Home', path: process.env.REACT_APP_BASE_URL + '/'}
 ];
 
 export default function Header() {
   return (
-    <nav>
+    <Nav>
         {links.map((link, key) => {
             return (
-                <li>
-                    <Link key={key} to={link.path}>{link.title}</Link>
-                </li>
+                <NavComponent key={key}>
+                    <Link to={link.path} style={LinkStyle} >{link.title}</Link>
+                </NavComponent>
             )
         })}
-    </nav>
+    </Nav>
   )
 }
