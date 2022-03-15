@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { globalStyle } from '../../assets/styles/global';
-
 export const Nav = styled.nav`
     display:flex;
     justify-content: end;

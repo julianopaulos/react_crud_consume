@@ -1,7 +1,7 @@
-import { InputHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes } from 'react';
 import { Container } from './styles';
 
-interface ButtonProps extends InputHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     text: string;
     width: number;
     height: number;
@@ -12,12 +12,8 @@ interface ButtonProps extends InputHTMLAttributes<HTMLButtonElement> {
 
 export default function Button(prop: ButtonProps) {
   return (
-    <Container 
-        width={prop.width} 
-        height={prop.height}
-        color={prop.color}
-        background={prop.background} 
-        hoverBackground={prop.hoverBackground}
+    <Container
+        {...prop}
     >
         {prop.text}
     </Container>
