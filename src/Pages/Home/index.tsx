@@ -1,11 +1,14 @@
+import { Div } from './styles';
+
 import Button from '../../components/Button/index';
 import Input from '../../components/Input/index';
 import Form from '../../components/Form/index';
 
 export default function Home() {
     return (
-        <>
+        <Div>
             <Form>
+
                 <Input
                     height={35}
                     width={300}
@@ -37,6 +40,6 @@ export default function Home() {
                     hoverBackground={'rgba(100, 230, 230, 0.7)'}
                 />
             </Form>
-        </>
+        </Div>
     )
 }
