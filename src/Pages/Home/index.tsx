@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Div, H3, Span } from './styles';
@@ -11,9 +11,20 @@ export default function Home() {
     const [userName, setUserName] = useState<String>('');
     const [password, setPassword] = useState<String>('');
 
+    async function handleLogin(event: FormEvent){
+        event.preventDefault();
+        if(!userName || !password) {
+            alert('Por favor, preencha todos os campos');
+            return false;
+        }
+        
+        await console.log('teste');
+    }
+
+
     return (
         <Div>
-            <Form onSubmit={(e) => {e.preventDefault(); console.log('teste')}}>
+            <Form onSubmit={handleLogin}>
                 <H3>
                     Bem vindo de volta
                 </H3>
