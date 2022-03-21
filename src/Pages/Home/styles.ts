@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 
 export const Div = styled.div`
-    background-color: rgba(250, 250, 250, .6);
+    background-color: rgba(220, 220, 220, .6);
     min-height: 100vh;
     display:flex;
     justify-content: center;
@@ -23,6 +23,6 @@ export const Span = styled.span`
     a{
         text-decoration: none;
         font-weight: bold;
-        color: black;
+        color: rgba(100, 160, 100, .8);
     }
 `;

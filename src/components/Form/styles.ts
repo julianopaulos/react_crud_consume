@@ -11,6 +11,6 @@ export const Container = styled.form`
     border-style: none;
     border-width: 0;
     border-radius: 15px;
-    background-color: rgba(240, 240, 240, .5);
-    box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    background-color: rgba(200, 200, 220, .2);
+    box-shadow: 3px 3px 2px rgba(0,0,0,0.5);
 `;

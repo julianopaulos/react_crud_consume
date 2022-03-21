@@ -1,5 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FiLock } from 'react-icons/fi';
 
 import { Div, H3, Span } from './styles';
 
