@@ -9,6 +9,12 @@ export const Div = styled.div`
     align-items: center;
 `
 
+export const Section = styled.section`
+    display:flex;
+    align-items: center;
+    margin-bottom: 20px;
+`;
+
 export const H3 = styled.h3`
     margin: 10px auto;
     margin-bottom: 30px;
