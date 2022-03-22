@@ -9,6 +9,8 @@ interface ContainerProps {
 export const Container = styled.input<ContainerProps>`
     width: ${(props) => props.width}px;
     height: ${(props) => props.height}px;
-    border: 2px solid rgba(200, 200, 200, .6);
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    border: none;
     border-radius: 5px;
-    padding-left: ${(props) => props.paddingLeft?props.paddingLeft:0}px;`
+    padding-left: ${(props) => props.paddingLeft?props.paddingLeft:0}px;
+`;

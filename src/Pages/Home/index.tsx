@@ -4,6 +4,7 @@ import { FiLock, FiUser, FiLogIn } from 'react-icons/fi';
 
 import { Div, H3, Span, Section } from './styles';
 
+import HeaderHome from '../../components/HeaderHome/index';
 import Button from '../../components/Button/index';
 import Input from '../../components/Input/index';
 import Form from '../../components/Form/index';
@@ -33,14 +34,15 @@ export default function Home() {
 
     return (
         <Div>
+            <HeaderHome/>
             <Form onSubmit={handleLogin}>
                 <H3>
-                    Bem vindo de volta
+                    Bem vindo de volta!
                 </H3>
                 <Section>
                     <FiUser style={iconStyles} />
                     <Input
-                        height={35}
+                        height={40}
                         width={300}
                         paddingLeft={35}
                         name="name"
@@ -56,7 +58,7 @@ export default function Home() {
                 <Section>
                     <FiLock style={iconStyles} />
                     <Input
-                        height={35}
+                        height={40}
                         width={300}
                         paddingLeft={35}
                         name="password"
@@ -83,7 +85,7 @@ export default function Home() {
                 </Section>
                 
                 <Span>
-                    Esqueceu sua senha? <Link to={process.env.REACT_APP_BASE_URL + '/'}>Crie sua conta</Link>
+                    Ainda não tem uma conta? <Link to={process.env.REACT_APP_BASE_URL + '/'}>Cadastre-se</Link>
                 </Span>
             </Form>
         </Div>
