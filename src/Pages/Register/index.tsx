@@ -38,7 +38,7 @@ export default function Register() {
             <HeaderHome/>
             <Form onSubmit={handleLogin}>
                 <H3>
-                    Seja bem vindo! <FiGithub style={{...iconStyles, color: '#fff', opacity: '1', position: 'relative'}} />
+                    Seja bem vindo <FiGithub style={{...iconStyles, color: '#fff', opacity: '1', position: 'relative'}} />
                 </H3>
                 <Section>
                     <FiUser style={iconStyles} />

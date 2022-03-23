@@ -1,6 +1,7 @@
 import React, { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiLock, FiUser, FiLogIn } from 'react-icons/fi';
+import { GiAstronautHelmet } from 'react-icons/gi';
 
 import { Div, H3, Span, Section } from './styles';
 
@@ -38,7 +39,7 @@ export default function Home() {
             <HeaderHome/>
             <Form onSubmit={handleLogin}>
                 <H3>
-                    Bem vindo de volta!
+                    Bem vindo de volta <GiAstronautHelmet style={{...iconStyles, color: '#fff', opacity: '1', position: 'relative'}} />
                 </H3>
                 <Section>
                     <FiUser style={iconStyles} />
