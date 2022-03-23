@@ -7,7 +7,7 @@ export const Nav = styled.nav`
     font-size: 20px;
     top:0;
     position: absolute;
-    background-color: rgba(55, 55, 55, .6);
+    background-color: rgba(55, 55, 255, .5);
 `;
 
 export const NavComponent = styled.li`

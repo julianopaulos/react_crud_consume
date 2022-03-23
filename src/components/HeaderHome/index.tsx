@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Nav, NavComponent, LinkStyle } from './styles';
 
 const links = [
-    {title: 'Login', path: process.env.REACT_APP_BASE_URL + '/'},
-    {title: 'Cadastro', path: process.env.REACT_APP_BASE_URL + '/register'}
+    {title: 'Login', path: '/'},
+    {title: 'Cadastro', path: '/register'}
 ];
 
 export default function Header() {

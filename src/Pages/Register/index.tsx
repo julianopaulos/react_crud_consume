@@ -1,6 +1,6 @@
 import React, { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiLock, FiUser, FiLogIn } from 'react-icons/fi';
+import { FiLock, FiUser, FiLogIn, FiGithub, FiMail } from 'react-icons/fi';
 
 import { Div, H3, Span, Section } from './styles';
 
@@ -18,7 +18,7 @@ const iconStyles = {
     opacity: '0.6',
 } as React.CSSProperties;
 
-export default function Home() {
+export default function Register() {
     const [userName, setUserName] = useState<String>('');
     const [password, setPassword] = useState<String>('');
 
@@ -38,7 +38,7 @@ export default function Home() {
             <HeaderHome/>
             <Form onSubmit={handleLogin}>
                 <H3>
-                    Bem vindo de volta!
+                    Seja bem vindo! <FiGithub style={{...iconStyles, color: '#fff', opacity: '1', position: 'relative'}} />
                 </H3>
                 <Section>
                     <FiUser style={iconStyles} />
@@ -46,13 +46,27 @@ export default function Home() {
                         height={40}
                         width={270}
                         paddingLeft={35}
-                        name="name"
+                        name="username"
                         type="text"
-                        id="name"
-                        placeholder="Nome de usuário ou e-mail"
+                        id="username"
+                        placeholder="Nome de usuário"
                         max="100"
                         min="4"
-                        onChange={input => setUserName(input.target.value)}
+                        required
+                    />
+                </Section>
+                <Section>
+                    <FiMail style={iconStyles} />
+                    <Input
+                        height={40}
+                        width={270}
+                        paddingLeft={35}
+                        name="email"
+                        type="email"
+                        id="email"
+                        placeholder="E-mail"
+                        max="100"
+                        min="4"
                         required
                     />
                 </Section>
@@ -76,7 +90,7 @@ export default function Home() {
                     <FiLogIn style={{...iconStyles, color: '#fff', opacity: '1'}}/>
                     <Button
                         type="submit"
-                        text={'Login'}
+                        text={'Registar'}
                         width={150}
                         height={35}
                         color="#fff"
@@ -86,7 +100,7 @@ export default function Home() {
                 </Section>
                 
                 <Span>
-                    Ainda não tem uma conta? <Link to={'/register'}>Cadastre-se</Link>
+                    Já tem uma conta? Faça seu <Link to={'/'}>Login</Link>
                 </Span>
             </Form>
             <Footer/>
