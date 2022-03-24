@@ -13,4 +13,9 @@ export const Container = styled.input<ContainerProps>`
     border: none;
     border-radius: 5px;
     padding-left: ${(props) => props.paddingLeft?props.paddingLeft:0}px;
+
+
+    @media only screen and (max-width: 440px) {
+        max-width: 180px;
+    }
 `;
