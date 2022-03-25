@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { FiLock, FiUser, FiLogIn } from 'react-icons/fi';
 import { GiAstronautHelmet } from 'react-icons/gi';
 
+import { api } from '../../services/api';
+
 import { Div, H3, Span, Section } from './styles';
 
 import HeaderHome from '../../components/HeaderHome/index';
@@ -30,7 +32,17 @@ export default function Home() {
             return false;
         }
         
-        await console.log('teste');
+        await api.post('/auth', {
+            username: userName,
+            password: password
+        }).then(response => {
+            console.log(response);
+        }).catch(error => {
+            console.error(error);
+            if(error.response.data){
+                alert("Erro: "+error.response.data);
+            }
+        });
     }
 
 

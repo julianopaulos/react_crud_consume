@@ -7,10 +7,10 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     paddingLeft?: number;
 }
 
-export default function Input(prop:InputProps) {
+export default function Input(props:InputProps) {
   return (
     <Container
-        {...prop}
+        {...props}
     />
   )
 }

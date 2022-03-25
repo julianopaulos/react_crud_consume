@@ -14,9 +14,13 @@ export const Container = styled.form`
     background-color: rgba(250, 250, 250, .6);
     box-shadow: 1px 2px 2px rgba(0,0,0,0.5);
 
-    @media only screen and (max-width: 1200px) {
-        width: 50%;
+    @media only screen and (max-width: 1300px) {
+        width: 30%;
         margin: 100px auto;
+    }
+
+    @media only screen and (max-width: 1100px) {
+        width: 50%;
     }
 
     @media only screen and (max-width: 700px) {
