@@ -42,4 +42,8 @@ export const Span = styled.span`
         font-weight: bold;
         color: rgba(100, 160, 100, .8);
     }
+    @media only screen and (max-width: 440px) {
+        max-width: 80%;
+        text-align: center;
+    }
 `;
