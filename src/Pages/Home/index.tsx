@@ -12,6 +12,7 @@ import Footer from '../../components/Footer/index';
 import Button from '../../components/Button/index';
 import Input from '../../components/Input/index';
 import Form from '../../components/Form/index';
+import InfoMessage from '../../components/InfoMessage/index';
 
 const iconStyles = {
     width: '1.2em',
@@ -22,13 +23,27 @@ const iconStyles = {
 } as React.CSSProperties;
 
 export default function Home() {
+
+    const [infoMessageDisplay, setInfoMessageDisplay] = useState<string>('none');
+    const [infoMessageText, setInfoMessageText] = useState<String>('teste');
+    const [infoMessageColor, setInfoMessageColor] = useState<string>('white');
+    const [infoMessageBackground, setInfoMessageBackground] = useState<string>('');
+
     const [userName, setUserName] = useState<String>('');
     const [password, setPassword] = useState<String>('');
 
     async function handleLogin(event: FormEvent){
         event.preventDefault();
         if(!userName || !password) {
+            setInfoMessageDisplay('flex');
+            setInfoMessageText('Por favor, preencha todos os campos');
+            setInfoMessageBackground('rgba(250, 100, 100, .8)');
             alert('Por favor, preencha todos os campos');
+
+            setTimeout(() => {
+                setInfoMessageDisplay('none');
+            }, 2000);
+
             return false;
         }
         
@@ -37,10 +52,24 @@ export default function Home() {
             password: password
         }).then(response => {
             console.log(response);
+            setInfoMessageDisplay('flex');
+            setInfoMessageText('Login efetuado com sucesso ');
+            setInfoMessageBackground('rgba(100, 250, 100, .8)');
+
+            setTimeout(() => {
+                setInfoMessageDisplay('none');
+            }, 2000);
         }).catch(error => {
             console.error(error);
             if(error.response.data){
                 alert("Erro: "+error.response.data);
+                setInfoMessageDisplay('flex');
+                setInfoMessageText(error.response.data);
+                setInfoMessageBackground('rgba(250, 100, 100, .8)');
+    
+                setTimeout(() => {
+                    setInfoMessageDisplay('none');
+                }, 2000);
             }
         });
     }
@@ -49,6 +78,14 @@ export default function Home() {
     return (
         <Div>
             <HeaderHome/>
+            <InfoMessage
+                backgroundColor={infoMessageBackground}
+                color={infoMessageColor}
+                display={infoMessageDisplay}
+                fontSize={20}
+            >
+                {infoMessageText}
+            </InfoMessage>
             <Form onSubmit={handleLogin}>
                 <H3>
                     Bem vindo de volta <GiAstronautHelmet style={{...iconStyles, color: '#fff', opacity: '1', position: 'relative'}} />

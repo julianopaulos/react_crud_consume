@@ -1,8 +1,11 @@
-import React, { FormHTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 import { SpanElement } from './styles';
 
-interface SpanProps extends React.Component<React.HTMLProps<HTMLSpanElement>, void> {
+interface SpanProps extends HTMLAttributes<HTMLSpanElement> {
+    display: string;
+    fontSize: number;
     backgroundColor: string;
+    color: string;
 }
 
 export default function Span(props: SpanProps) {
