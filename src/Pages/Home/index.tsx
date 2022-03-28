@@ -32,18 +32,23 @@ export default function Home() {
     const [userName, setUserName] = useState<String>('');
     const [password, setPassword] = useState<String>('');
 
+    function handleMessage(display: string, message: string, background: string, color?: string){
+        setInfoMessageDisplay(display);
+        setInfoMessageText(message);
+        setInfoMessageBackground(background);
+        if(color){
+            setInfoMessageColor(color);
+        }
+
+        setTimeout(() => {
+            setInfoMessageDisplay('none');
+        }, 3000);
+    }
+
     async function handleLogin(event: FormEvent){
         event.preventDefault();
         if(!userName || !password) {
-            setInfoMessageDisplay('flex');
-            setInfoMessageText('Por favor, preencha todos os campos');
-            setInfoMessageBackground('rgba(250, 100, 100, .8)');
-            alert('Por favor, preencha todos os campos');
-
-            setTimeout(() => {
-                setInfoMessageDisplay('none');
-            }, 2000);
-
+            handleMessage('flex', 'Por favor, preencha todos os campos', 'rgba(250, 100, 100, .8)');
             return false;
         }
         
@@ -51,25 +56,17 @@ export default function Home() {
             username: userName,
             password: password
         }).then(response => {
-            console.log(response);
-            setInfoMessageDisplay('flex');
-            setInfoMessageText('Login efetuado com sucesso ');
-            setInfoMessageBackground('rgba(100, 250, 100, .8)');
-
-            setTimeout(() => {
-                setInfoMessageDisplay('none');
-            }, 2000);
+            if(response.data.token){
+                handleMessage('flex', 'Login efetuado com sucesso!', 'rgba(100, 200, 100, 1)');
+                localStorage.setItem('token', response.data.token);
+            }
+            
         }).catch(error => {
-            console.error(error);
+            //console.error(error);
             if(error.response.data){
-                alert("Erro: "+error.response.data);
-                setInfoMessageDisplay('flex');
-                setInfoMessageText(error.response.data);
-                setInfoMessageBackground('rgba(250, 100, 100, .8)');
-    
-                setTimeout(() => {
-                    setInfoMessageDisplay('none');
-                }, 2000);
+                handleMessage('flex', error.response.data, 'rgba(250, 100, 100, .8)');
+            }else{
+                handleMessage('flex', 'Erro ao conectar ao servidor, tente mais tarde!', 'rgba(250, 100, 100, .8)');
             }
         });
     }
