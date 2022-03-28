@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from 'react';
-import { SpanElement } from './styles';
+import { SpanElement, MessageFadeOutStyle } from './styles';
 
 interface SpanProps extends HTMLAttributes<HTMLSpanElement> {
     display: string;
@@ -9,10 +9,15 @@ interface SpanProps extends HTMLAttributes<HTMLSpanElement> {
 }
 
 export default function Span(props: SpanProps) {
-  return (
-    <SpanElement
-        {...props}
-    >
-    </SpanElement>
-  )
+    return (
+        <>
+            <MessageFadeOutStyle />
+            <SpanElement
+                className='message'
+                id='message'
+                {...props}
+            >
+            </SpanElement>
+        </>
+    )
 }

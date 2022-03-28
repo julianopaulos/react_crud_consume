@@ -33,6 +33,8 @@ export default function Home() {
     const [password, setPassword] = useState<String>('');
 
     function handleMessage(display: string, message: string, background: string, color?: string){
+        const messageElement = document.getElementById('message');
+        console.log(messageElement?.classList);
         setInfoMessageDisplay(display);
         setInfoMessageText(message);
         setInfoMessageBackground(background);

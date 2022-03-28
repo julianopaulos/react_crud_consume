@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 interface SpanElementProps{
     display: string;
@@ -6,6 +6,18 @@ interface SpanElementProps{
     backgroundColor: string;
     color: string;
 }
+
+export const MessageFadeOutStyle = createGlobalStyle`
+    .message{
+        transition: .5s;
+    }
+    .message .fadeIn{
+        display: flex;
+    }
+    .message .fadeOut{
+        display: none;
+    }
+`;
 
 export const SpanElement = styled.span<SpanElementProps>`
     display: ${(props) => props.display};
